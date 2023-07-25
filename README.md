@@ -1,6 +1,6 @@
 # Space Travelers <a name="about-project"></a>
 
-**Space X Travelers** is a SPA built with NextJS, it allows the user to make reservations on SpaceX missions and rockets.
+**Space X Travelers** is a SPA built with React, it allows the user to make reservations on SpaceX missions and rockets.
 
 [Live Site](https://space-x-travelers.vercel.app/)
 
@@ -11,7 +11,7 @@
 This project was created using:
 
   <ul>
-    <li>NextJS</li>
+    <li>React</li>
     <li>TailwindCSS</li>
   </ul>
 
