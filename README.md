@@ -11,7 +11,9 @@
 This project was created using:
 
   <ul>
-    <li>React</li>
+    <li>ReactJS</li>
+    <li>TypeScript</li>
+    <li>Redux Toolkit</li>
     <li>TailwindCSS</li>
   </ul>
 
@@ -24,7 +26,7 @@ To get a local copy up and running, follow these steps.
 1. Clone the repository into your machine (Or download the .zip file and extract).
 2. Open the project's folder.
 3. Run pnpm install
-4. Run npm run dev
+4. Run pnpm dev
 
 ## Authors <a name="authors"></a>
 
