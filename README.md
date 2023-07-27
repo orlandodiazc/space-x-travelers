@@ -1,4 +1,4 @@
-# Space Travelers <a name="about-project"></a>
+# Space X Travelers <a name="about-project"></a>
 
 **Space X Travelers** is a SPA built with React, it allows the user to make reservations on SpaceX missions and rockets.
 
