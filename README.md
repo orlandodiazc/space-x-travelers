@@ -17,7 +17,9 @@ This project was created using:
     <li>TailwindCSS</li>
   </ul>
 
-<!-- Features -->
+### Desktop
+
+![Desktop screenshot](https://raw.githubusercontent.com/orlandodiazc/space-x-travelers/main/public/opengraph-image.webp)
 
 ## Getting Started <a name="getting-started"></a>
 
