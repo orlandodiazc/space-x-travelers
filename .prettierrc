@@ -1,4 +1,4 @@
 {
-  "tailwindFunctions": ["twMerge"],
+  "tailwindFunctions": ["cn"],
   "plugins": ["prettier-plugin-tailwindcss"]
 }

@@ -1,7 +1,6 @@
-import { twMerge } from "tailwind-merge";
-
-import { NavItem } from "../types/nav";
+import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
+import { NavItem } from "../types/nav";
 
 interface MainNavProps {
   items?: NavItem[];
@@ -21,7 +20,7 @@ export function MainNav({ items, closeMenu }: MainNavProps) {
                   key={index}
                   to={item.href}
                   onClick={closeMenu}
-                  className={twMerge(
+                  className={cn(
                     "flex h-full items-center border-b-4 py-1.5 text-lg uppercase hover:text-foreground",
                     item.disabled && "cursor-not-allowed opacity-80",
                     pathname === item.href

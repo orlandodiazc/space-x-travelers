@@ -1,9 +1,9 @@
+import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { twMerge } from "tailwind-merge";
-import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import { Icons } from "./icons";
 import { MainNav } from "./main-nav";
-import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 const navItems = [
@@ -48,7 +48,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={twMerge(
+      className={cn(
         "z-40 w-full sm:absolute",
         show ? "fixed" : "hidden sm:block",
       )}
