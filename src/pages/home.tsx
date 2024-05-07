@@ -1,11 +1,11 @@
-import { Icons } from "../components/icons"
-import Info from "../components/info"
-import Spinner from "../components/spinner"
-import { buttonVariants } from "../components/ui/button"
-import { useGetCompanyQuery } from "../redux/services/spacex"
+import { Icons } from "../components/icons";
+import Info from "../components/info";
+import Spinner from "../components/spinner";
+import { buttonVariants } from "../components/ui/button";
+import { useGetCompanyQuery } from "../redux/services/spacex";
 
 export default function Home() {
-  const { data, isError, isLoading } = useGetCompanyQuery()
+  const { data, isError, isLoading } = useGetCompanyQuery();
   return (
     <div className="flex min-h-screen bg-home-mobile bg-cover pt-24 sm:pt-32 md:bg-home-tablet lg:bg-home-desktop lg:pt-40">
       <div className="container flex">
@@ -74,5 +74,5 @@ export default function Home() {
         )}
       </div>
     </div>
-  )
+  );
 }

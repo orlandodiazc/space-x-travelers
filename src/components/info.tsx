@@ -1,6 +1,6 @@
 interface Info {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
 export default function Info({ title, description }: Info) {
@@ -9,5 +9,5 @@ export default function Info({ title, description }: Info) {
       <span className="text-white">{title}</span>
       <span className="text-muted-foreground">{description}</span>
     </div>
-  )
+  );
 }

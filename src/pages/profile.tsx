@@ -1,9 +1,9 @@
-import { useAppSelector } from "../hooks/hooks"
+import { useAppSelector } from "../hooks/hooks";
 
 export default function Profile() {
   const { reservedRockets, reservedMissions } = useAppSelector(
-    ({ profileReducer }) => profileReducer
-  )
+    ({ profileReducer }) => profileReducer,
+  );
   return (
     <div className="min-h-screen items-center bg-profile-mobile bg-cover pb-8 pt-24 sm:pt-32 md:bg-profile-tablet lg:bg-profile-desktop lg:pt-40">
       <section className="container grid gap-4 sm:grid-flow-col">
@@ -43,5 +43,5 @@ export default function Profile() {
         </div>
       </section>
     </div>
-  )
+  );
 }

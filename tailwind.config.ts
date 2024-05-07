@@ -1,9 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-/* eslint-disable */
-const defaultTheme = require("tailwindcss/defaultTheme")
-module.exports = {
+import { type Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme.js";
+import animatePlugin from "tailwindcss-animate";
+
+export default {
   darkMode: ["class"],
-  content: ["src/**/*.{ts,tsx}"],
+  content: ["src/**/*.{ts,tsx}", "index.html"],
   theme: {
     container: {
       center: true,
@@ -74,12 +75,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -88,5 +89,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [animatePlugin],
+} satisfies Config;

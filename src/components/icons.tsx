@@ -10,9 +10,9 @@ import {
   Twitter,
   X,
   type LucideIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-export type Icon = LucideIcon
+export type Icon = LucideIcon;
 
 const iconFlickr = () => (
   <svg
@@ -26,7 +26,7 @@ const iconFlickr = () => (
     <circle cx="85.8" cy="181.34" r="85.8" fill="#005DE1"></circle>
     <circle cx="276.88" cy="181.34" r="85.8" fill="#FF007E"></circle>
   </svg>
-)
+);
 
 const iconLogo = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
@@ -38,7 +38,7 @@ const iconLogo = () => (
       ></path>
     </g>
   </svg>
-)
+);
 
 export const Icons = {
   sun: SunMedium,
@@ -53,4 +53,4 @@ export const Icons = {
   logo: iconLogo,
   heart: Heart,
   heartoff: HeartOff,
-}
+};

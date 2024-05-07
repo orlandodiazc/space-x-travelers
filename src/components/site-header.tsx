@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import { twMerge } from "tailwind-merge"
-import { Button } from "./ui/button"
-import { Icons } from "./icons"
-import { MainNav } from "./main-nav"
-import { Link } from "react-router-dom"
-import { Separator } from "./ui/separator"
+import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { Button } from "./ui/button";
+import { Icons } from "./icons";
+import { MainNav } from "./main-nav";
+import { Link } from "react-router-dom";
+import { Separator } from "./ui/separator";
 
 const navItems = [
   {
@@ -23,34 +23,34 @@ const navItems = [
     title: "Profile",
     href: "/profile",
   },
-]
+];
 
 export function SiteHeader() {
-  const [isOpen, setOpen] = useState(false)
-  const [show, setShow] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isOpen, setOpen] = useState(false);
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const controlNavbar = () => {
       if (window.scrollY > lastScrollY) {
-        setShow(false)
+        setShow(false);
       } else {
-        setShow(true)
+        setShow(true);
       }
-      setLastScrollY(window.scrollY)
-    }
+      setLastScrollY(window.scrollY);
+    };
 
-    window.addEventListener("scroll", controlNavbar)
+    window.addEventListener("scroll", controlNavbar);
     return () => {
-      window.removeEventListener("scroll", controlNavbar)
-    }
-  }, [lastScrollY])
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <header
       className={twMerge(
         "z-40 w-full sm:absolute",
-        show ? "fixed" : "hidden sm:block"
+        show ? "fixed" : "hidden sm:block",
       )}
     >
       <div className="flex items-center justify-between gap-2 p-6 sm:pe-0 sm:ps-10 sm:pt-0 lg:ps-20 lg:pt-10">
@@ -91,5 +91,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }

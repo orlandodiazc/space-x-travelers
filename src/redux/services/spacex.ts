@@ -1,7 +1,7 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import type { Company } from "../../types/company"
-import type { Rocket } from "../../types/rocket"
-import type { Mission } from "../../types/mission"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import type { Company } from "../../types/company";
+import type { Rocket } from "../../types/rocket";
+import type { Mission } from "../../types/mission";
 
 export const apiSlice = createApi({
   reducerPath: "spacex",
@@ -18,7 +18,7 @@ export const apiSlice = createApi({
       transformResponse: (res: Mission[]) => res.slice(0, 4),
     }),
   }),
-})
+});
 
 export const { useGetCompanyQuery, useGetMissionsQuery, useGetRocketsQuery } =
-  apiSlice
+  apiSlice;

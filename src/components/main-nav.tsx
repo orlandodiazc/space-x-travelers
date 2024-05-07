@@ -1,15 +1,15 @@
-import { twMerge } from "tailwind-merge"
+import { twMerge } from "tailwind-merge";
 
-import { NavItem } from "../types/nav"
-import { Link, useLocation } from "react-router-dom"
+import { NavItem } from "../types/nav";
+import { Link, useLocation } from "react-router-dom";
 
 interface MainNavProps {
-  items?: NavItem[]
-  closeMenu: () => void
+  items?: NavItem[];
+  closeMenu: () => void;
 }
 
 export function MainNav({ items, closeMenu }: MainNavProps) {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   return (
     <div className="flex flex-col sm:h-24 sm:flex-row sm:justify-center sm:rounded-bl-md sm:bg-white/5 sm:px-8 sm:backdrop-blur-lg lg:rounded-l-md lg:pe-36 lg:ps-32">
       {items?.length ? (
@@ -26,7 +26,7 @@ export function MainNav({ items, closeMenu }: MainNavProps) {
                     item.disabled && "cursor-not-allowed opacity-80",
                     pathname === item.href
                       ? "border-white"
-                      : "border-transparent hover:border-white/50"
+                      : "border-transparent hover:border-white/50",
                   )}
                 >
                   <span className="flex gap-4">
@@ -34,10 +34,10 @@ export function MainNav({ items, closeMenu }: MainNavProps) {
                     <span>{item.title}</span>
                   </span>
                 </Link>
-              )
+              ),
           )}
         </nav>
       ) : null}
     </div>
-  )
+  );
 }

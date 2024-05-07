@@ -1,9 +1,9 @@
-import Spinner from "../../components/spinner"
-import { useGetRocketsQuery } from "../../redux/services/spacex"
-import RocketFactory from "./rocket"
+import Spinner from "../../components/spinner";
+import { useGetRocketsQuery } from "../../redux/services/spacex";
+import RocketFactory from "./rocket";
 
 export default function Rockets() {
-  const { data, isError, isLoading } = useGetRocketsQuery()
+  const { data, isError, isLoading } = useGetRocketsQuery();
   return (
     <div className="min-h-screen items-center bg-rockets-mobile bg-cover pb-8 pt-24 sm:pt-28 md:bg-rockets-tablet lg:bg-rockets-desktop lg:pt-40">
       <section className="container flex flex-col gap-4">
@@ -25,5 +25,5 @@ export default function Rockets() {
         )}
       </section>
     </div>
-  )
+  );
 }

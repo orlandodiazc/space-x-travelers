@@ -1,8 +1,0 @@
-package.json
-package-lock.json
-public
-CHANGELOG.md
-.yarn
-dist
-node_modules
-build

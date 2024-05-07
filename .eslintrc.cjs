@@ -8,14 +8,6 @@ module.exports = {
     "prettier",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
-  overrides: [
-    {
-      files: ["*.config.js", "*.config.cjs"],
-      env: {
-        node: true,
-      },
-    },
-  ],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
   rules: {
@@ -27,7 +19,7 @@ module.exports = {
   },
   settings: {
     tailwindcss: {
-      config: "tailwind.config.js",
+      config: "tailwind.config.ts",
     },
   },
-}
+};

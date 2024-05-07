@@ -3,20 +3,20 @@ import {
   CardContent,
   CardDescription,
   CardTitle,
-} from "../../components/ui/card"
-import { Rocket } from "../../types/rocket"
-import { Badge } from "../../components/ui/badge"
-import { Button } from "../../components/ui/button"
-import { toggleRocketReservation } from "../../redux/services/profile"
-import Info from "../../components/info"
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
+} from "../../components/ui/card";
+import { Rocket } from "../../types/rocket";
+import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/button";
+import { toggleRocketReservation } from "../../redux/services/profile";
+import Info from "../../components/info";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 export default function RocketFactory({ rocket }: { rocket: Rocket }) {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const reservedRockets = useAppSelector(
-    ({ profileReducer }) => profileReducer.reservedRockets
-  )
-  const isReserved = reservedRockets.some((item) => item.id === rocket.id)
+    ({ profileReducer }) => profileReducer.reservedRockets,
+  );
+  const isReserved = reservedRockets.some((item) => item.id === rocket.id);
   return (
     <Card>
       <CardContent className="grid justify-stretch gap-2 lg:grid-flow-col lg:justify-start">
@@ -48,7 +48,7 @@ export default function RocketFactory({ rocket }: { rocket: Rocket }) {
             className="sm:me-auto"
             onClick={() =>
               dispatch(
-                toggleRocketReservation({ id: rocket.id, name: rocket.name })
+                toggleRocketReservation({ id: rocket.id, name: rocket.name }),
               )
             }
           >
@@ -57,5 +57,5 @@ export default function RocketFactory({ rocket }: { rocket: Rocket }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

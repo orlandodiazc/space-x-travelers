@@ -1,21 +1,21 @@
-import { configureStore, isAnyOf } from "@reduxjs/toolkit"
-import { apiSlice } from "./services/spacex"
+import { configureStore, isAnyOf } from "@reduxjs/toolkit";
+import { apiSlice } from "./services/spacex";
 import {
   profileSlice,
   toggleMissionReservation,
   toggleRocketReservation,
-} from "./services/profile"
-import { listenerMiddleware, startAppListening } from "./listenerMiddleware"
+} from "./services/profile";
+import { listenerMiddleware, startAppListening } from "./listenerMiddleware";
 
 startAppListening({
   matcher: isAnyOf(toggleMissionReservation, toggleRocketReservation),
   effect: (_, listenerApi) => {
     localStorage.setItem(
       "profile",
-      JSON.stringify((listenerApi.getState() as RootState).profileReducer)
-    )
+      JSON.stringify((listenerApi.getState() as RootState).profileReducer),
+    );
   },
-})
+});
 
 export const store = configureStore({
   reducer: {
@@ -27,11 +27,11 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       apiSlice.middleware,
-      listenerMiddleware.middleware
+      listenerMiddleware.middleware,
     ),
-})
+});
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

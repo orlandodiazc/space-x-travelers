@@ -1,16 +1,16 @@
-import Spinner from "../../components/spinner"
+import Spinner from "../../components/spinner";
 import {
   Table,
   TableBody,
   TableHead,
   TableHeader,
   TableRow,
-} from "../../components/ui/table"
-import { useGetMissionsQuery } from "../../redux/services/spacex"
-import MissionFactory from "./mission"
+} from "../../components/ui/table";
+import { useGetMissionsQuery } from "../../redux/services/spacex";
+import MissionFactory from "./mission";
 
 export default function Missions() {
-  const { data, isError, isLoading } = useGetMissionsQuery()
+  const { data, isError, isLoading } = useGetMissionsQuery();
 
   return (
     <div className="min-h-screen items-center bg-missions-mobile bg-cover pb-8 pt-24 sm:pt-32 md:bg-missions-tablet lg:bg-missions-desktop lg:pt-40">
@@ -49,5 +49,5 @@ export default function Missions() {
         )}
       </section>
     </div>
-  )
+  );
 }

@@ -1,18 +1,18 @@
-import { Button } from "../../components/ui/button"
-import { TableCell, TableRow } from "../../components/ui/table"
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks"
-import { Mission } from "../../types/mission"
-import { toggleMissionReservation } from "../../redux/services/profile"
-import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button";
+import { TableCell, TableRow } from "../../components/ui/table";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { Mission } from "../../types/mission";
+import { toggleMissionReservation } from "../../redux/services/profile";
+import { Badge } from "../../components/ui/badge";
 
 export default function MissionFactory({ mission }: { mission: Mission }) {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const reservedMissions = useAppSelector(
-    ({ profileReducer }) => profileReducer.reservedMissions
-  )
+    ({ profileReducer }) => profileReducer.reservedMissions,
+  );
   const isReserved = reservedMissions.some(
-    (item) => item.id === mission.mission_id
-  )
+    (item) => item.id === mission.mission_id,
+  );
   return (
     <TableRow>
       <TableCell>{mission.mission_name}</TableCell>
@@ -36,7 +36,7 @@ export default function MissionFactory({ mission }: { mission: Mission }) {
               toggleMissionReservation({
                 id: mission.mission_id,
                 name: mission.mission_name,
-              })
+              }),
             )
           }
         >
@@ -44,5 +44,5 @@ export default function MissionFactory({ mission }: { mission: Mission }) {
         </Button>
       </TableCell>
     </TableRow>
-  )
+  );
 }
