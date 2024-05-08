@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -21,8 +21,11 @@
     <meta property="og:image" content="/opengraph-image.webp" />
     <title>Space X Travelers</title>
   </head>
-  <body class="min-h-screen bg-background font-sans antialiased">
-    <div id="root"></div>
+  <body class="h-full antialiased">
+    <div
+      id="root"
+      class="flex h-full flex-col bg-background text-foreground"
+    ></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

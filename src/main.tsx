@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "@fontsource-variable/hanken-grotesk";
+import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import "@fontsource/barlow-condensed/400.css";
-import "@fontsource/barlow-condensed/500.css";
-import "@fontsource/barlow-condensed/600.css";
-import "./index.css";
 import Home from "./pages/home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rockets from "./pages/Rockets";

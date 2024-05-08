@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --font-sans: "Barlow Condensed";
+    --font-sans: Hanken Grotesk Variable, Hanken Grotesk Fallback;
     --background: 230, 35%, 7%;
     --foreground: 0 0% 100%;
 
@@ -27,7 +27,7 @@
     --secondary-foreground: 210 40% 98%;
 
     --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 210 40% 94%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
@@ -35,14 +35,5 @@
     --ring: 216 34% 17%;
 
     --radius: 0.5rem;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
