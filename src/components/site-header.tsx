@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Icons } from "./icons";
@@ -27,33 +26,37 @@ const navItems = [
 
 export function SiteHeader() {
   const [isOpen, setOpen] = useState(false);
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+
+  function openMenu() {
+    setOpen(true);
+    document.body.style.position = "fixed";
+  }
+
+  function closeMenu() {
+    setOpen(false);
+    document.body.style.position = "";
+  }
+
+  function toggleMenu() {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
 
   useEffect(() => {
-    const controlNavbar = () => {
-      if (window.scrollY > lastScrollY) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
+    function handleResize() {
+      if (window.innerWidth > 640) closeMenu();
+    }
 
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [lastScrollY]);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <header
-      className={cn(
-        "z-40 w-full sm:absolute",
-        show ? "fixed" : "hidden sm:block",
-      )}
-    >
-      <div className="flex items-center justify-between gap-2 p-6 sm:pe-0 sm:ps-10 sm:pt-0 lg:ps-20 lg:pt-10">
+    <header className="z-40 w-full">
+      <div className="flex items-center justify-between gap-2 p-6 sm:pe-0 sm:ps-10 sm:pt-0 lg:ps-20 lg:pt-4">
         <Link to="/" className="flex items-center">
           <Icons.logo />
         </Link>
@@ -61,7 +64,7 @@ export function SiteHeader() {
           className="z-10 sm:hidden"
           variant="ghost"
           size="icon"
-          onClick={() => setOpen(!isOpen)}
+          onClick={toggleMenu}
         >
           {isOpen ? (
             <Icons.close className="w-6" />
@@ -72,22 +75,22 @@ export function SiteHeader() {
         </Button>
         {isOpen && (
           <div
-            className="absolute inset-0 w-full animate-in fade-in-100 slide-in-from-right sm:hidden"
-            onClick={() => setOpen(false)}
+            className="fixed inset-0 overflow-y-scroll sm:hidden"
+            onClick={closeMenu}
           >
             <div
-              className="ms-auto min-h-screen w-[65%] bg-black/5 backdrop-blur-3xl"
+              className="ms-auto min-h-full w-[65%] bg-black/5 backdrop-blur-3xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex flex-col pe-8 ps-16 pt-28">
-                <MainNav items={navItems} closeMenu={() => setOpen(false)} />
+              <div className="flex flex-col pe-8 ps-14 pt-28">
+                <MainNav items={navItems} closeMenu={closeMenu} />
               </div>
             </div>
           </div>
         )}
         <Separator className="z-10 -mr-12 ml-16 hidden lg:block" />
         <div className="hidden sm:flex">
-          <MainNav items={navItems} closeMenu={() => setOpen(false)} />
+          <MainNav items={navItems} closeMenu={closeMenu} />
         </div>
       </div>
     </header>
