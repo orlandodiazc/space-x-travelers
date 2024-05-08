@@ -3,21 +3,29 @@ import Info from "../components/info";
 import Spinner from "../components/spinner";
 import { buttonVariants } from "../components/ui/button";
 import { useGetCompanyQuery } from "../redux/services/spacex";
+import { useSpinDelay } from "spin-delay";
 
 export default function Home() {
   const { data, isError, isLoading } = useGetCompanyQuery();
+  const loading = useSpinDelay(isLoading);
+
+  if (isError) return <div>Unable to fetch company information.</div>;
+  if (loading) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-screen bg-home-mobile bg-cover pt-24 sm:pt-32 md:bg-home-tablet lg:bg-home-desktop lg:pt-40">
+    <div className="h-full pt-2 sm:pt-32 lg:pt-40">
       <div className="container flex">
-        {isLoading ? (
-          <div className="mx-auto">
-            <Spinner />
-          </div>
-        ) : isError || !data ? (
-          <h1>Unable to fetch company information</h1>
-        ) : (
+        {data && (
           <section className="flex max-w-3xl flex-col items-center gap-3 self-center text-center sm:items-start sm:text-left">
-            <h1 className="text-5xl md:text-6xl">{data.name}</h1>
+            <h1 className="mb-2 text-5xl font-medium md:text-6xl">
+              {data.name}
+            </h1>
             <span className="flex items-center gap-2 text-sm sm:text-base">
               <Icons.location size="20" />
               <p>

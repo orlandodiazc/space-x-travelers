@@ -1,3 +1,4 @@
+import { useSpinDelay } from "spin-delay";
 import Spinner from "../../components/spinner";
 import {
   Table,
@@ -11,19 +12,23 @@ import MissionFactory from "./mission";
 
 export default function Missions() {
   const { data, isError, isLoading } = useGetMissionsQuery();
+  const loading = useSpinDelay(isLoading, { delay: 750, minDuration: 400 });
+
+  if (isError) return <div>Unable to fetch missions.</div>;
+  if (loading) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen items-center bg-missions-mobile bg-cover pb-8 pt-24 sm:pt-32 md:bg-missions-tablet lg:bg-missions-desktop lg:pt-40">
+    <div className="pb-8 pt-2 sm:pt-8">
       <section className="container flex flex-col gap-4">
-        {isLoading ? (
-          <div className="mx-auto">
-            <Spinner />
-          </div>
-        ) : isError || !data ? (
-          <h1>Unable to fetch missions</h1>
-        ) : (
+        {data && (
           <>
-            <h1 className="text-4xl md:text-5xl">Active Missions</h1>
+            <h1 className="mb-3 text-4xl md:text-5xl">Active Missions</h1>
             <div className="rounded-lg bg-black/25 backdrop-blur-xl">
               <Table>
                 <TableHeader>
