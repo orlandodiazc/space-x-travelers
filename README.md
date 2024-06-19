@@ -2,7 +2,7 @@
 
 **Space X Travelers** is a SPA built with React, it allows the user to make reservations on SpaceX missions and rockets.
 
-[Live Site](https://space-x-travelers.vercel.app/)
+[Live Site](https://space-travelers.odiaz.com.co/)
 
 ## Built With <a name="built-with"></a>
 
